@@ -24,6 +24,19 @@ const extractNumber = (value) => {
   return parseInt(digits, 10);
 };
 
+const getMinutes = (time) => {
+  const [hours, minutes] = time.split(':');
+  return Number(hours) * 60 + Number(minutes);
+};
+
+const isMeetingInWorkday = (dayStart, dayEnd, meetingStart, meetingDuration) => {
+  const meetingStartMinutes = getMinutes(meetingStart);
+  const meetingEndMinutes = meetingStartMinutes + meetingDuration;
+
+  return meetingStartMinutes >= getMinutes(dayStart) && meetingEndMinutes <= getMinutes(dayEnd);
+};
+
 checkStringLength('проверяемая строка', 20);
 isPalindrome('Лёша на полке клопа нашёл ');
 extractNumber('1 кефир, 0.5 батона');
+isMeetingInWorkday('08:00', '17:30', '14:00', 90);
