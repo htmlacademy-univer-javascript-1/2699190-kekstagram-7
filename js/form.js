@@ -1,4 +1,6 @@
 import {isEscapeKey} from './util.js';
+import {resetScale} from './scale.js';
+import {resetEffect} from './effects.js';
 
 const MAX_HASHTAGS = 5;
 const MAX_COMMENT_LENGTH = 140;
@@ -52,15 +54,23 @@ const onDocumentKeydown = (evt) => {
   }
 };
 
+const resetUploadForm = () => {
+  form.reset();
+  pristine.reset();
+  resetScale();
+  resetEffect();
+};
+
 const openUploadForm = () => {
+  resetScale();
+  resetEffect();
   overlay.classList.remove('hidden');
   document.body.classList.add('modal-open');
   document.addEventListener('keydown', onDocumentKeydown);
 };
 
 function closeUploadForm() {
-  form.reset();
-  pristine.reset();
+  resetUploadForm();
   overlay.classList.add('hidden');
   document.body.classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentKeydown);
