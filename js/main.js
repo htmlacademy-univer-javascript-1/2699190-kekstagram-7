@@ -1,5 +1,12 @@
-import {createPhotos} from './data.js';
+import {getData} from './api.js';
 import {initGallery} from './gallery.js';
+import {showDataError} from './messages.js';
 import './form.js';
 
-initGallery(createPhotos());
+getData()
+  .then((pictures) => {
+    initGallery(pictures);
+  })
+  .catch(() => {
+    showDataError();
+  });
