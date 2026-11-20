@@ -1395,3 +1395,22 @@ main {
 .hidden {
   display: none;
 }
+
+.img-upload__error {
+  width: 450px;
+  margin: -12px auto 14px;
+
+  font-size: 14px;
+  line-height: 18px;
+  text-align: left;
+  color: #ff6b6b;
+}
+
+.text__description + .img-upload__error {
+  margin-top: 6px;
+}
+
+.img-upload__field-wrapper--invalid .text__hashtags,
+.img-upload__field-wrapper--invalid .text__description {
+  outline: 2px solid #ff6b6b;
+}
