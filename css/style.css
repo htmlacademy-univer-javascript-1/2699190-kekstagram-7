@@ -1395,3 +1395,59 @@ main {
 .hidden {
   display: none;
 }
+
+.img-upload__error {
+  width: 450px;
+  margin: -12px auto 14px;
+
+  font-size: 14px;
+  line-height: 18px;
+  text-align: left;
+  color: #ff6b6b;
+}
+
+.text__description + .img-upload__error {
+  margin-top: 6px;
+}
+
+.img-upload__field-wrapper--invalid .text__hashtags,
+.img-upload__field-wrapper--invalid .text__description {
+  outline: 2px solid #ff6b6b;
+}
+
+.data-error {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  z-index: 100;
+
+  width: 420px;
+  padding: 20px 30px;
+
+  text-align: center;
+  color: #ffffff;
+
+  background-color: #e0464f;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+  transform: translateX(-50%);
+}
+
+.data-error__title {
+  margin: 0 0 8px;
+
+  font-size: 20px;
+  line-height: 26px;
+  text-transform: none;
+}
+
+.data-error__text {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.error {
+  z-index: 3;
+}
