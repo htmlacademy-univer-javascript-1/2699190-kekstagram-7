@@ -2,6 +2,7 @@ import {isEscapeKey} from './util.js';
 import {resetScale} from './scale.js';
 import {resetEffect} from './effects.js';
 import {sendData} from './api.js';
+import {showPreview} from './preview.js';
 import {showSuccessMessage, showErrorMessage, isErrorMessageShown} from './messages.js';
 
 const MAX_HASHTAGS = 5;
@@ -85,7 +86,12 @@ function closeUploadForm() {
 }
 
 fileInput.addEventListener('change', () => {
-  openUploadForm();
+  if (showPreview(fileInput.files[0])) {
+    openUploadForm();
+    return;
+  }
+
+  fileInput.value = '';
 });
 
 cancelButton.addEventListener('click', (evt) => {
