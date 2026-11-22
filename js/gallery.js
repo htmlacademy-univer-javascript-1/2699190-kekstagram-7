@@ -26,4 +26,8 @@ const initGallery = (pictures) => {
   picturesContainer.addEventListener('click', onPicturesContainerClick);
 };
 
-export {initGallery};
+const updateGallery = (pictures) => {
+  renderThumbnails(pictures);
+};
+
+export {initGallery, updateGallery};
